@@ -1,5 +1,5 @@
 class AffirmationsController < ApplicationController
-  http_basic_authenticate_with name: "paul-dev", password: "12345", except: :random
+  http_basic_authenticate_with name: Rails.application.credentials.admin_name!, password: Rails.application.credentials.admin_secret, except: :random
   def index
     @affirmations = Affirmation.all
   end
