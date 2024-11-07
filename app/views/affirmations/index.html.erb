@@ -1,11 +1,12 @@
-<h1>Affirmationen für Junior-Entwickler:innen</h1>
+<h1 class="font-bold text-4xl mb-4">Übersicht aller Affirmationen</h1>
 
 <ul>
     <% @affirmations.each do |affirmation|%>
-        <li>
+        <li class=" px-4 hover:bg-blue-dark rounded">
             <%= link_to affirmation.text, affirmation%>
         </li>
     <% end %>
 </ul>
 
 <%= link_to "Neue Affirmation anlegen", new_affirmation_path %>
+<%= link_to "Zur Startseite", root_path%>
