@@ -1,9 +1,16 @@
 class AffirmationsController < ApplicationController
+  http_basic_authenticate_with name: "paul-dev", password: "12345", except: :random
   def index
     @affirmations = Affirmation.all
   end
   def show
     @affirmation = Affirmation.find(params[:id])
+  end
+
+  # Show random affirmation on index page
+  def random
+    affirmations = Affirmation.all
+    @randomAffirmation = affirmations.sample
   end
 
   # Create and save a new entry
@@ -41,7 +48,7 @@ class AffirmationsController < ApplicationController
     @affirmation = Affirmation.find(params[:id])
     @affirmation.destroy
 
-    redirect_to root_path, status: :see_other
+    redirect_to "/affirmations", status: :see_other
   end
 
   # Make sure only allowed params are sent
