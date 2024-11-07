@@ -36,6 +36,14 @@ class AffirmationsController < ApplicationController
     end
   end
 
+  # Delete entry
+  def destroy
+    @affirmation = Affirmation.find(params[:id])
+    @affirmation.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
   # Make sure only allowed params are sent
   private
     def affirmation_params

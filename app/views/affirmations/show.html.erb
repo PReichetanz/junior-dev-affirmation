@@ -2,4 +2,15 @@
 
 <h2><%= @affirmation.text %></h2>
 
-<%= link_to "Affirmation überarbeiten", edit_affirmation_path(@affirmation) %>
+<ul>
+    <li>
+        <%= link_to "Zurück zur Übersicht", root_path %>
+    </li>
+    <li>
+        <%= link_to "Affirmation überarbeiten", edit_affirmation_path(@affirmation) %>
+    </li>
+    <li><%= link_to "Affirmation löschen", affirmation_path(@affirmation), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Möchtest Du den Eintrag wirklich löschen?"
+                  } %></li>
+</ul>
