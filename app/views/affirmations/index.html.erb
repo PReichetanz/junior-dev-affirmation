@@ -1,11 +1,11 @@
-<h1>Hello, Rails!</h1>
+<h1>Affirmationen für Junior-Entwickler:innen</h1>
 
 <ul>
     <% @affirmations.each do |affirmation|%>
         <li>
-            <a href="/affirmations/<%= affirmation.id%>">
-                <%= affirmation.text%>
-            </a>
+            <%= link_to affirmation.text, affirmation%>
         </li>
     <% end %>
 </ul>
+
+<%= link_to "Neue Affirmation anlegen", new_affirmation_path %>

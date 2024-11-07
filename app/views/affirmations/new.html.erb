@@ -1,0 +1,15 @@
+<h1>Neue Affirmation</h1>
+
+<%= form_with model: @affirmation do |form| %>
+  <div>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+    <% @affirmation.errors.full_messages_for(:text).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
