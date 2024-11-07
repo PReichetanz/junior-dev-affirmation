@@ -3,7 +3,9 @@
 <ul>
     <% @affirmations.each do |affirmation|%>
         <li>
-            <%= affirmation.text%>
+            <a href="/affirmations/<%= affirmation.id%>">
+                <%= affirmation.text%>
+            </a>
         </li>
     <% end %>
 </ul>
